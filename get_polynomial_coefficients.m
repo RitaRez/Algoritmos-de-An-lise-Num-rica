@@ -1,7 +1,7 @@
 function coefficients = get_polynomial_coefficients(n, x, y)
 % encontra polinomio caracteristico de uma funcao    
     
-    if (n < 1)
+    if n < 1
         error('Grau do polinomio < 1');
     end 
     
@@ -25,9 +25,12 @@ function coefficients = get_polynomial_coefficients(n, x, y)
     end
     
     %imprime o polinômio
+    disp(c)
     coefficients = "";
-    for i = 1:length(n)
-        coefficients = coefficients + c(i) + "x^" + i;    
+    for i = length(c):-1:1
+        if c(i) ~= 0
+            coefficients = coefficients + c(i) + "x^" + (i-1) + " "; 
+        end
     end
     
     
